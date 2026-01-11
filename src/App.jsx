@@ -6,7 +6,7 @@ import Sensors from "./pages/Sensors";
 import Architecture from "./pages/Architecture";
 import ML from "./pages/ML";
 import DataDashboard from "./pages/DataDashboard";
-import Team from "./pages/Team";
+import Indvidual from "./pages/Indvidual";
 import Contact from "./pages/Contact";
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
           <Route path="/architecture" element={<Architecture />} />
           <Route path="/ml" element={<ML />} />
           <Route path="/data" element={<DataDashboard />} />
-          <Route path="/team" element={<Team />} />
+          <Route path="/Indvidual" element={<Indvidual />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </AppLayout>

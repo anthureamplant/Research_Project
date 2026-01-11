@@ -21,8 +21,8 @@ export default function Navbar() {
             <Link to="/architecture" className={`transition ${isActive("/architecture") ? "text-emerald-600 font-semibold" : "hover:text-emerald-600"}`}>System</Link>
             <Link to="/ml" className={`transition ${isActive("/ml") ? "text-emerald-600 font-semibold" : "hover:text-emerald-600"}`}>ML</Link>
             <Link to="/data" className={`transition ${isActive("/data") ? "text-emerald-600 font-semibold" : "hover:text-emerald-600"}`}>Data</Link>
-            <Link to="/team" className={`transition ${isActive("/team") ? "text-emerald-600 font-semibold" : "hover:text-emerald-600"}`}>Team</Link>
-            <Link to="/contact" className="bg-emerald-600 text-white px-4 py-2 rounded-md shadow hover:opacity-95 transition">Contact</Link>
+            <Link to="/Indvidual" className={`transition ${isActive("/Indvidual") ? "text-emerald-600 font-semibold" : "hover:text-emerald-600"}`}>Indvidual</Link>
+            <Link to="/contact" className={`transition ${isActive("/Indvidual") ? "text-emerald-600 font-semibold" : "hover:text-emerald-600"}`}>Contact</Link>
           </nav>
         </div>
       </header>

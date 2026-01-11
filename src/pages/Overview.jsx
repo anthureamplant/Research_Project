@@ -7,7 +7,7 @@ export default function Home() {
       <section className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <div>
           <h2 className="text-4xl font-extrabold mb-4">Anthurium Growth Monitoring And Analysis</h2>
-          <p className="text-gray-700 mb-6 leading-relaxed">A complete prototype for measuring, analysing and improving Anthurium development using a sensor network, cloud data pipeline and machine learning — built for research or production-ready nethouses.</p>
+          <p className="text-gray-700 mb-6 leading-relaxed">A complete prototype for measuring, analysing and improving Anthurium development using a sensor network, cloud data pipeline and machine learning built for research or production-ready net houses.</p>
           <ul className="space-y-3 text-gray-700 mb-6">
             <li className="flex items-start">
               <span className="mr-3">•</span>

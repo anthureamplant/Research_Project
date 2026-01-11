@@ -10,9 +10,21 @@ function StatCard({ label, value }) {
 }
 
 export default function Data() {
+
+  const images = [
+    { src: "/images/Month0.jpg", label: "Day 10" },
+    { src: "/images/Month1.jpg", label: "Day 25" },
+    { src: "/images/Month2.jpg", label: "Day 55" },
+    { src: "/images/Month4.jpg", label: "Month 3" },
+    { src: "/images/Month5.jpg", label: "Month 4" },
+    { src: "/images/Month6.png", label: "Month 5" },
+  ];
+  const [selectedImage, setSelectedImage] = React.useState(null);
+
+
   return (
     <div>
-      <h2 className="text-4xl font-bold mb-4">Data & Dashboard</h2>
+      <h2 className="text-4xl font-bold mb-4">Data And Dashboard</h2>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
         <div className="bg-white p-8 rounded-xl shadow-lg">
@@ -23,27 +35,68 @@ export default function Data() {
             <StatCard label="Temperature" value="25.4 °C" />
             <StatCard label="Humidity" value="78 %" />
             <StatCard label="Soil Moisture" value="56 %" />
-            <StatCard label="EC" value="1.8 mS/cm" />
-            <StatCard label="pH" value="6.2" />
-            <StatCard label="Light (lux)" value="12,500" />
+            
           </div>
         </div>
 
         <div className="bg-white p-8 rounded-xl shadow-lg">
           <h3 className="font-bold text-xl mb-2">Image gallery</h3>
-          <p className="text-gray-600 text-sm mb-6">Automatically stored images (daily snapshots). Click to enlarge in your final app.</p>
+          <p className="text-gray-600 text-sm mb-6">
+             stored images (daily snapshots).
+          </p>
+
           <div className="grid grid-cols-3 gap-3">
-            {Array.from({ length: 6 }).map((_, i) => (
-              <div key={i} className="h-24 bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center text-xs text-gray-400 border border-gray-200 hover:border-emerald-300 transition cursor-pointer">
-                <div className="text-center">
-                  <div className="text-lg mb-1">📷</div>
-                  <div>Day {(i + 1) * 5}</div>
+            {images.map((img, i) => (
+              <div
+                key={i}
+                onClick={() => setSelectedImage(img)}
+                className="relative h-24 rounded-lg overflow-hidden border border-gray-200 hover:border-emerald-400 transition cursor-pointer group"
+              >
+                <img
+                  src={img.src}
+                  alt={img.label}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                />
+
+                <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition flex items-end">
+                  <span className="text-white text-xs p-2">{img.label}</span>
                 </div>
               </div>
             ))}
           </div>
+          
         </div>
+      
       </div>
+
+      {selectedImage && (
+        <div
+          className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div
+            className="relative max-w-3xl w-full mx-4 bg-white rounded-xl overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={selectedImage.src}
+              alt={selectedImage.label}
+              className="w-full h-auto object-contain"
+            />
+
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-2 right-2 bg-black/60 text-white rounded-full px-3 py-1 text-sm hover:bg-black"
+            >
+              ✕
+            </button>
+
+            <div className="p-4 text-center text-sm text-gray-700">
+              {selectedImage.label}
+            </div>
+          </div>
+        </div>
+      )}
 
       <div className="bg-white rounded-xl p-8 shadow-lg mb-8">
         <h3 className="font-bold text-xl mb-6">Database schema</h3>
